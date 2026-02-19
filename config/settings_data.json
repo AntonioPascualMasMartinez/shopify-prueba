@@ -753,5 +753,10 @@
         }
       }
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      ".button-secondary {color: #ffffff;}"
+    ]
   }
 }
