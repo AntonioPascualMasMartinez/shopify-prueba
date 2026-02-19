@@ -612,10 +612,10 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-block-start": 56,
+                "padding-block-end": 42,
+                "padding-inline-start": 56,
+                "padding-inline-end": 42
               },
               "blocks": {}
             },
@@ -693,8 +693,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 32,
-        "padding-block-end": 32
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "section_zebDDT": {
