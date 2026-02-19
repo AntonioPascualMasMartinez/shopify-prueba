@@ -1,0 +1,22 @@
+{%- comment -%}
+  Snippet: announcement-bar-right
+  Expected:
+    - section (required)
+{%- endcomment -%}
+
+<div class="announcement-bar__right">
+  {%- if section.settings.ab_right_link_label != blank and section.settings.ab_right_link_url != blank -%}
+    <a class="announcement-bar__right-link" href="{{ section.settings.ab_right_link_url }}">
+      {{ section.settings.ab_right_link_label }}
+    </a>
+  {%- endif -%}
+
+  {%- if section.settings.ab_show_language or section.settings.ab_show_country -%}
+    {% render 'localization-form',
+      show_country: section.settings.ab_show_country,
+      show_language: section.settings.ab_show_language,
+      form_id: section.id,
+      localization_style: 'dropdown'
+    %}
+  {%- endif -%}
+</div>

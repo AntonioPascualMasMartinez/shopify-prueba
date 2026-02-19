@@ -80,6 +80,7 @@
               ref="search"
               on:keyup="/filterCountries"
             >
+
             <label
               class="field__label visually-hidden"
               for="country-filter-input"
@@ -247,6 +248,10 @@
         {% if show_country == true %}
           <span class="language-selector__label">{{ 'content.language' | t }}</span>
         {% endif %}
+        {%- if show_flags -%}
+          <span class="localization-flag" data-iso="{{ localization.country.iso_code }}" aria-hidden="true"></span>
+        {%- endif -%}
+
         <select
           id="{{ localization_style }}Select"
           class="localization-form__select"
@@ -446,7 +451,7 @@
     border: none;
     color: var(--color-foreground);
     appearance: none;
-    background-color: var(--color-input-background);
+    background-color: transparent;
     padding-block: var(--padding-3xs);
     padding-inline: var(--padding-xs) calc(var(--icon-size-xs) + var(--padding-xs));
     text-align: right;
@@ -454,6 +459,7 @@
     max-width: 40vw;
     text-overflow: ellipsis;
     field-sizing: content;
+    font-size: 12px;
 
     &:focus-visible {
       outline: var(--focus-outline-width) solid currentcolor;
