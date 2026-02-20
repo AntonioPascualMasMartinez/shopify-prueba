@@ -757,8 +757,7 @@
   },
   "platform_customizations": {
     "custom_css": [
-      ".button-secondary {color: #ffffff;}",
-      ".button-primary {padding: 0.5em 8em 0.5em 8em;}"
+      ".button-secondary {color: #ffffff;}"
     ]
   }
 }
