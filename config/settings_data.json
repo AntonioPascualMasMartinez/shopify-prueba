@@ -757,7 +757,9 @@
   },
   "platform_customizations": {
     "custom_css": [
-      ".button-secondary {color: #ffffff;}"
+      ".button-secondary {color: #ffffff;}",
+      ".button--AelZqZnQvMDF0WFRtc__button_H9gpTf {border: 1px solid #273488 !important; padding: 0.5em 8em 0.5em 8em !important;}",
+      ".button--AelZqZnQvMDF0WFRtc__button_H9gpTf:hover {background-color: #1a235c !important;}"
     ]
   }
 }
