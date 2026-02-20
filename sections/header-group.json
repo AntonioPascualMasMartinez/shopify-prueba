@@ -89,7 +89,8 @@
       },
       "custom_css": [
         ".menu-list__list-item:nth-child(10) .menu-list__link-title {background-color: red !important; padding: 0.5em;}",
-        ".menu-list__list-item:nth-child(10)::hover {color: #ffffff;}"
+        ".menu-list__list-item:nth-child(10)::hover {color: #ffffff;}",
+        ".cbp-hrmenu-tab a span {color: unset !important;}"
       ],
       "settings": {
         "logo_position": "left",
