@@ -705,6 +705,17 @@
   .menu-list__link-title cbp-tab-title{
     display: flex;
   }
+
+  .menu-list__link:hover,
+  .menu-list__link:focus {
+    color: var(--menu-top-level-font-color) !important;
+  }
+
+  .menu-list:where(:has(.menu-list__list-item:hover)) .menu-list__link,
+  .menu-list:where(:has(.menu-list__list-item:focus-within)) .menu-list__link,
+  .menu-list:where(:has(.menu-list__list-item:not([aria-hidden='true']) .menu-list__link--active)) .menu-list__link {
+    color: var(--menu-top-level-font-color) !important;
+  }
 {% endstylesheet %}
 
 {% schema %}
