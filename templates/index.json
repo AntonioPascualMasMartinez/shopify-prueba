@@ -32,7 +32,7 @@
         "button_H9gpTf"
       ],
       "custom_css": [
-        ".hero{min-height: 98.5dvh !important;}"
+        ".hero {min-height: 98.7dvh !important;}"
       ],
       "name": "t:names.hero",
       "settings": {
