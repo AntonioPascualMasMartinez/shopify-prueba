@@ -8,6 +8,7 @@
 {%- enddoc -%}
 
 {% unless style == 'none' %}
+  
   <div class="search-action search-widget {% if class != blank %}{{ class | strip }}{% endif %}">
     <form method="get" action="{{ routes.search_url }}" style="width: 100%;">
       <div class="custom-search-wrapper">
