@@ -79,9 +79,9 @@
       </dialog>
     </dialog-component>
 
-    <style>
+<style>
       header-actions {
-        gap: 20px !important; /* Espacio entre los bloques de Perfil, Favoritos y Carrito */
+        gap: 24px !important; /* Espacio entre los tres bloques */
       }
       .header-actions__action {
         display: flex !important;
@@ -90,23 +90,31 @@
         justify-content: center !important;
         text-decoration: none !important;
         height: auto !important;
-        gap: 6px !important; /* Separación entre el dibujo y la palabra */
+        gap: 6px !important; 
         padding: 0 5px;
+        color: #273488 !important; /* Tu color azul */
+      }
+      /* Obligamos a los iconos a usar tu color azul */
+      .header-actions__action svg {
+        color: #273488 !important;
+        stroke: #273488 !important;
       }
       .custom-action-title {
-        font-size: 11px;
+        font-size: 13px; /* Tamaño más legible */
         line-height: 1;
         font-weight: 500;
         white-space: nowrap;
+        text-transform: none; /* Respetamos las minúsculas */
       }
-      /* Inyecta el texto del perfil dinámicamente según si está logueado o no */
+      
       .account-popover .header-actions__action::after,
       .account-drawer .header-actions__action::after {
         content: "{% if customer %}Mi cuenta{% else %}Iniciar sesión{% endif %}";
-        font-size: 11px;
+        font-size: 13px;
         line-height: 1;
         font-weight: 500;
         white-space: nowrap;
+        text-transform: none;
       }
     </style>
   {% endif %}
