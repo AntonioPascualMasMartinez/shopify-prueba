@@ -88,7 +88,7 @@
         }
       },
       "custom_css": [
-        "a[href*=\"novedades\"] .menu-list__link-title {color: red !important;}"
+        ".menu-list__list-item:last-child .menu-list__link-title {background-color: red !important;}"
       ],
       "settings": {
         "logo_position": "left",
