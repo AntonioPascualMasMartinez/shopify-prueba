@@ -41,14 +41,14 @@
   </search-button>
 
   <style>
-    /* El diseño visual exacto que pediste */
+ 
     .custom-search-wrapper {
       display: flex;
       align-items: center;
       background-color: #ffffff;
       border-radius: 90px;
       padding: 10px 20px;
-      width: 100%; /* Ahora sí ocupará todo el ancho que le deje el padre */
+      width: 100%;
       border: none;
       cursor: pointer;
       transition: opacity 0.2s ease;
@@ -64,7 +64,7 @@
     }
 
     .custom-search-placeholder {
-      color: rgba(39, 52, 136, 0.5); /* Color #273488 con 50% de opacidad */
+      color: rgba(39, 52, 136, 0.5);
       font-family: inherit;
       font-size: 1rem;
       text-align: left;
@@ -74,7 +74,6 @@
 {% endunless %}
 
 {% stylesheet %}
-  /* El CSS se queda intacto para que no vuelva a dar el error de los 2 botones */
   .search-action {
     --search-border-radius: var(--style-border-radius-inputs);
     --search-border-width: var(--style-border-width-inputs);
@@ -116,7 +115,7 @@
         left: 50% !important;
         transform: translateX(-50%) !important;
         width: 100%;
-        max-width: 400px; /* Cambia esto si la quieres más o menos ancha */
+        max-width: 750px;
         z-index: 10;
       }
     }
