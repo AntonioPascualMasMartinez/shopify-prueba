@@ -8,72 +8,82 @@
 {%- enddoc -%}
 
 {% unless style == 'none' %}
-  <search-button class="search-action {% if class != blank %}{{ class | strip }}{% endif %}" style="flex-grow: 1; display: flex; justify-content: center;">
-    
-    <button
-      on:click="#search-modal/showDialog"
-      class="custom-search-wrapper"
-      aria-label="{{ 'content.search_input_label' | t }}"
-      aria-haspopup="dialog"
-    >
-      <span class="custom-search-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#273488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-      </span>
+  <div class="search-action search-widget {% if class != blank %}{{ class | strip }}{% endif %}">
+    <form method="get" action="{{ routes.search_url }}" style="width: 100%;">
+      <div class="custom-search-wrapper">
+        
+        <button type="submit" class="custom-search-btn" aria-label="{{ 'content.search_input_label' | t }}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#273488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
 
-      <span class="custom-search-placeholder">¿Qué estás buscando?</span>
-    </button>
-  </search-button>
+        <input type="hidden" name="type" value="product">
+        
+        <input 
+          type="text" 
+          name="q" 
+          value="{{ search.terms | escape }}" 
+          autocomplete="off" 
+          autocorrect="off" 
+          autocapitalize="off" 
+          spellcheck="false" 
+          placeholder="¿Qué estás buscando?" 
+          class="custom-search-input"
+        >
+      </div>
+    </form>
+  </div>
 
   <style>
-    /* Diseño visual de la píldora */
+    /* Estilos visuales de tu diseño */
     .custom-search-wrapper {
       display: flex;
       align-items: center;
       background-color: #ffffff;
-      border-radius: 90px;
+      border-radius: 90px; /* Borde de píldora */
       padding: 10px 20px;
       width: 100%;
-      max-width: 500px; /* Ancho máximo de la barra. Puedes subirlo o bajarlo */
-      min-width: 200px;
+      min-width: 250px; /* Evita que se haga muy pequeño */
+    }
+
+    .custom-search-btn {
+      background: none;
       border: none;
-      
-      /* Truco: Cambiamos el cursor para que parezca que se puede escribir */
-      cursor: text; 
-      
-      margin: 0 auto; /* Centrado horizontal automático */
-      transition: opacity 0.2s ease;
-    }
-
-    /* Pequeño efecto al pasar el ratón para que se sienta interactivo */
-    .custom-search-wrapper:hover {
-      opacity: 0.9; 
-    }
-
-    .custom-search-icon {
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 12px;
+      padding: 0;
+      margin-right: 12px; /* Separación entre lupa y texto */
     }
 
-    .custom-search-placeholder {
-      color: rgba(39, 52, 136, 0.5); /* Tu color #273488 con 50% de opacidad */
+    .custom-search-input {
+      flex-grow: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      box-shadow: none;
+      min-width: 0;
+      color: #273488;
       font-family: inherit;
       font-size: 1rem;
-      text-align: left;
-      flex-grow: 1; /* Empuja el texto para ocupar el espacio */
+    }
+
+    /* Color del placeholder transparente */
+    .custom-search-input::placeholder {
+      color: rgba(39, 52, 136, 0.5); 
     }
   </style>
 {% endunless %}
 
 {% stylesheet %}
-  /* Respetamos las clases originales del tema para móvil/desktop */
+  /* Lógica original del tema para mostrar/ocultar en móvil y escritorio */
   .search-action {
     display: flex;
     align-items: center;
+    width: 100%;
   }
 
   @media screen and (max-width: 749px) {
