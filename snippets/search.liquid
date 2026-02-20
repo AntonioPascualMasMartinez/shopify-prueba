@@ -8,10 +8,17 @@
 {%- enddoc -%}
 
 {% unless style == 'none' %}
-  <div class="search-action search-widget {% if class != blank %}{{ class | strip }}{% endif %}" style="width: 100%; max-width: 350px;">
+  <div class="search-action search-widget {% if class != blank %}{{ class | strip }}{% endif %}">
     <form method="get" action="{{ routes.search_url }}" style="width: 100%;">
-      <div class="input-group" style="display: flex; align-items: center; border: 1px solid var(--color-border); border-radius: var(--search-border-radius, 4px); padding: 4px 12px;">
+      <div class="custom-search-wrapper">
         
+        <button type="submit" class="custom-search-btn" aria-label="{{ 'content.search_input_label' | t }}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#273488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
         <input type="hidden" name="type" value="product">
         
         <input 
@@ -23,29 +30,60 @@
           autocapitalize="off" 
           spellcheck="false" 
           placeholder="¿Qué estás buscando?" 
-          class="form-control form-search-control"
-          style="flex-grow: 1; border: none; background: transparent; outline: none; box-shadow: none; min-width: 0;"
+          class="custom-search-input"
         >
-        
-        <button type="submit" class="search-btn" aria-label="{{ 'content.search_input_label' | t }}" style="background: none; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 4px; color: currentColor;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-        </button>
-        
       </div>
     </form>
   </div>
+
+  <style>
+    /* Estilos visuales de tu diseño */
+    .custom-search-wrapper {
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
+      border-radius: 90px; /* Borde de píldora */
+      padding: 10px 20px;
+      width: 100%;
+      min-width: 250px; /* Evita que se haga muy pequeño */
+    }
+
+    .custom-search-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      margin-right: 12px; /* Separación entre lupa y texto */
+    }
+
+    .custom-search-input {
+      flex-grow: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      box-shadow: none;
+      min-width: 0;
+      color: #273488;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    /* Color del placeholder transparente */
+    .custom-search-input::placeholder {
+      color: rgba(39, 52, 136, 0.5); 
+    }
+  </style>
 {% endunless %}
 
 {% stylesheet %}
+  /* Lógica original del tema para mostrar/ocultar en móvil y escritorio */
   .search-action {
-    --search-border-radius: var(--style-border-radius-inputs);
-    --search-border-width: var(--style-border-width-inputs);
-
     display: flex;
     align-items: center;
+    width: 100%;
   }
 
   @media screen and (max-width: 749px) {
