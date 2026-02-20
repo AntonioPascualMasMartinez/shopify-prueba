@@ -437,7 +437,7 @@
         "collection": "",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
-        "max_products": 6,
+        "max_products": 4,
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
@@ -448,7 +448,7 @@
         "section_width": "page-width",
         "horizontal_alignment": "flex-start",
         "gap": 28,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2ac0c37c-8792-4053-9429-d4620f655b90",
         "padding-block-start": 48,
         "padding-block-end": 48
       }
