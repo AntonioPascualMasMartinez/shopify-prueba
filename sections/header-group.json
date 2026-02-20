@@ -88,7 +88,7 @@
         }
       },
       "custom_css": [
-        ".menu-list__list-item:nth-child(10) .menu-list__link-title {background-color: red !important; padding: 2em;}"
+        ".menu-list__list-item:nth-child(10) .menu-list__link-title {background-color: red !important; padding: .5em;}"
       ],
       "settings": {
         "logo_position": "left",
