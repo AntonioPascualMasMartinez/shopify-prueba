@@ -3,87 +3,69 @@
 
   @param {string} [style] - The style of the search action.
   @param {string} [class] - Additional classes for the search action.
+
   @example
   {% render 'search', style: 'default', class: 'custom-class' %}
 {%- enddoc -%}
 
 {% unless style == 'none' %}
-  <div class="search-action search-widget {% if class != blank %}{{ class | strip }}{% endif %}">
-    <form method="get" action="{{ routes.search_url }}" style="width: 100%;">
-      <div class="custom-search-wrapper">
-        
-        <button type="submit" class="custom-search-btn" aria-label="{{ 'content.search_input_label' | t }}">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#273488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-        </button>
-
-        <input type="hidden" name="type" value="product">
-        
-        <input 
-          type="text" 
-          name="q" 
-          value="{{ search.terms | escape }}" 
-          autocomplete="off" 
-          autocorrect="off" 
-          autocapitalize="off" 
-          spellcheck="false" 
-          placeholder="¿Qué estás buscando?" 
-          class="custom-search-input"
-        >
-      </div>
-    </form>
-  </div>
+  <search-button class="search-action{% if class != blank %} {{ class | strip }}{% endif %}">
+    
+    <button
+      on:click="#search-modal/showDialog"
+      class="button-unstyled custom-search-wrapper"
+      aria-label="{{ 'content.search_input_label' | t }}"
+      aria-haspopup="dialog"
+    >
+      <span class="custom-search-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#273488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </span>
+      
+      <span class="custom-search-placeholder">¿Qué estás buscando?</span>
+    </button>
+  </search-button>
 
   <style>
-    /* Estilos visuales de tu diseño */
+    /* El diseño visual exacto que pediste */
     .custom-search-wrapper {
       display: flex;
       align-items: center;
       background-color: #ffffff;
-      border-radius: 90px; /* Borde de píldora */
+      border-radius: 90px;
       padding: 10px 20px;
       width: 100%;
-      min-width: 250px; /* Evita que se haga muy pequeño */
-    }
-
-    .custom-search-btn {
-      background: none;
+      min-width: 250px; 
       border: none;
       cursor: pointer;
+    }
+
+    .custom-search-icon {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0;
-      margin-right: 12px; /* Separación entre lupa y texto */
+      margin-right: 12px;
     }
 
-    .custom-search-input {
-      flex-grow: 1;
-      border: none;
-      background: transparent;
-      outline: none;
-      box-shadow: none;
-      min-width: 0;
-      color: #273488;
+    .custom-search-placeholder {
+      color: rgba(39, 52, 136, 0.5); /* Color #273488 con 50% de opacidad */
       font-family: inherit;
       font-size: 1rem;
-    }
-
-    /* Color del placeholder transparente */
-    .custom-search-input::placeholder {
-      color: rgba(39, 52, 136, 0.5); 
+      text-align: left;
+      flex-grow: 1;
     }
   </style>
 {% endunless %}
 
 {% stylesheet %}
-  /* Lógica original del tema para mostrar/ocultar en móvil y escritorio */
+  /* El CSS se queda intacto para que no vuelva a dar el error de los 2 botones */
   .search-action {
+    --search-border-radius: var(--style-border-radius-inputs);
+    --search-border-width: var(--style-border-width-inputs);
+
     display: flex;
-    align-items: center;
-    width: 100%;
   }
 
   @media screen and (max-width: 749px) {
