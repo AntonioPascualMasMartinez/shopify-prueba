@@ -1,4 +1,3 @@
-
 {%- doc -%}
   Renders a header menu block.
 
@@ -98,8 +97,14 @@
             {%- endif -%}
             ref="menuitem"
           >
-            <span class="menu-list__link-title">{{- link.title -}}</span>
-          </a>
+          {%- if link.links != blank -%}
+              <span class="menu-list__link-title cbp-tab-title">
+                {{- link.title -}}
+                <i class="fa fa-angle-down cbp-submenu-aindicator"></i>
+              </span>
+            {%- else -%}
+              <span class="menu-list__link-title">{{- link.title -}}</span>
+            {%- endif -%}          </a>
           {%- if link.links != blank -%}
             <div class="menu-list__submenu{{ color_scheme_classes }}" ref="submenu[]">
               <div
