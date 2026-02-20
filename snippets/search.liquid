@@ -11,7 +11,7 @@
 {% unless style == 'none' %}
   <search-button
     class="search-action custom-absolute-center {% if class != blank %} {{ class | strip }}{% endif %}"
-    style="width: 100%; max-width: 750px; flex-grow: 1; font-size: 12px;"
+    style="width: 100%; max-width: 750px; flex-grow: 1;"
   >
     <button
       on:click="#search-modal/showDialog"
@@ -66,7 +66,7 @@
     .custom-search-placeholder {
       color: rgba(39, 52, 136, 0.5);
       font-family: inherit;
-      font-size: 1rem;
+      font-size: 12px;
       text-align: left;
       flex-grow: 1;
     }
