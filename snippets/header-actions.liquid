@@ -79,34 +79,71 @@
       </dialog>
     </dialog-component>
 
-    <style>
+<style>
       header-actions {
-        gap: 20px !important; /* Espacio entre los bloques de Perfil, Favoritos y Carrito */
+        gap: 16px !important;
+        align-items: flex-end !important; /* Asegura que todos se apoyen en la misma línea base */
       }
+
       .header-actions__action {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        justify-content: center !important;
+        justify-content: flex-end !important;
         text-decoration: none !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 4px !important;
         height: auto !important;
-        gap: 6px !important; /* Separación entre el dibujo y la palabra */
-        padding: 0 5px;
+        gap: 6px !important;
       }
-      .custom-action-title {
-        font-size: 11px;
-        line-height: 1;
-        font-weight: 500;
-        white-space: nowrap;
+
+      /* Uniformizar el contenedor de los 3 iconos */
+      .header-actions__action .svg-wrapper,
+      .header-actions__action > svg {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 24px !important;
+        height: 24px !important;
+        margin: 0 !important;
       }
-      /* Inyecta el texto del perfil dinámicamente según si está logueado o no */
+
+      /* Darle el mismo azul y grosor fino a todos los iconos */
+      .header-actions__action svg {
+        width: 24px !important;
+        height: 24px !important;
+        color: #273488 !important;
+        stroke: #273488 !important;
+        stroke-width: 1.5 !important;
+        fill: none !important;
+      }
+
+      /* Ocultar el texto de accesibilidad de Shopify que descuadraba Iniciar Sesión */
+      .header-actions__action .visually-hidden {
+        display: none !important;
+      }
+
+      /* Tipografía ESTRICTA e idéntica para los 3 textos */
+      .custom-action-title,
+      .account-popover .header-actions__action::after,
+      .account-drawer .header-actions__action::after {
+        font-family: var(--font-body--family), sans-serif !important;
+        font-size: 13px !important;
+        font-weight: 400 !important; /* Quitamos la negrita */
+        line-height: 1 !important;
+        text-transform: none !important;
+        white-space: nowrap !important;
+        color: #273488 !important;
+        display: block !important;
+        margin: 0 !important;
+        letter-spacing: 0 !important;
+      }
+
+      /* Inyección del texto de cuenta */
       .account-popover .header-actions__action::after,
       .account-drawer .header-actions__action::after {
         content: "{% if customer %}Mi cuenta{% else %}Iniciar sesión{% endif %}";
-        font-size: 11px;
-        line-height: 1;
-        font-weight: 500;
-        white-space: nowrap;
       }
     </style>
   {% endif %}
