@@ -9,7 +9,7 @@
 {%- enddoc -%}
 
 {% unless style == 'none' %}
-  <search-button class="search-action{% if class != blank %} {{ class | strip }}{% endif %}">
+  <search-button class="search-action{% if class != blank %} {{ class | strip }}{% endif %}" style="width: 100%; max-width: 400px; flex-grow: 1;">
     
     <button
       on:click="#search-modal/showDialog"
@@ -36,10 +36,14 @@
       background-color: #ffffff;
       border-radius: 90px;
       padding: 10px 20px;
-      width: 100%;
-      min-width: 250px; 
+      width: 100%; /* Ahora sí ocupará todo el ancho que le deje el padre */
       border: none;
       cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .custom-search-wrapper:hover {
+      opacity: 0.9;
     }
 
     .custom-search-icon {
