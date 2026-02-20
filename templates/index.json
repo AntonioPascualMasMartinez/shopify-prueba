@@ -31,6 +31,9 @@
       "block_order": [
         "button_H9gpTf"
       ],
+      "custom_css": [
+        ".hero{min-height: 98.5dvh !important;}"
+      ],
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "video",
