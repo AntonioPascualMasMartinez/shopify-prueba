@@ -9,8 +9,10 @@
 {%- enddoc -%}
 
 {% unless style == 'none' %}
-  <search-button class="search-action custom-absolute-center {% if class != blank %} {{ class | strip }}{% endif %}" style="width: 100%; max-width: 400px; flex-grow: 1;">
-    
+  <search-button
+    class="search-action custom-absolute-center {% if class != blank %} {{ class | strip }}{% endif %}"
+    style="width: 100%; max-width: 400px; flex-grow: 1;"
+  >
     <button
       on:click="#search-modal/showDialog"
       class="button-unstyled custom-search-wrapper"
@@ -18,12 +20,22 @@
       aria-haspopup="dialog"
     >
       <span class="custom-search-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#273488" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#273488"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
       </span>
-      
+
       <span class="custom-search-placeholder">¿Qué estás buscando?</span>
     </button>
   </search-button>
@@ -97,4 +109,15 @@
       margin-inline: calc(var(--gap-md) * -1) calc(var(--gap-xs) * -1);
     }
   }
+
+  @media screen and (min-width: 750px) {
+      .custom-absolute-center {
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 100%;
+        max-width: 400px; /* Cambia esto si la quieres más o menos ancha */
+        z-index: 10;
+      }
+    }
 {% endstylesheet %}
