@@ -74,11 +74,50 @@
             {{- 'icon-close.svg' | inline_asset_content -}}
           </span>
         </button>
-        {% render 'account-actions' %}
+ {% render 'account-actions' %}
       </dialog>
     </dialog-component>
+
+    <style>
+      header-actions {
+        gap: 20px !important; /* Espacio entre los bloques de Perfil, Favoritos y Carrito */
+      }
+      .header-actions__action {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-decoration: none !important;
+        height: auto !important;
+        gap: 6px !important; /* Separación entre el dibujo y la palabra */
+        padding: 0 5px;
+      }
+      .custom-action-title {
+        font-size: 11px;
+        line-height: 1;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+      /* Inyecta el texto del perfil dinámicamente según si está logueado o no */
+      .account-popover .header-actions__action::after,
+      .account-drawer .header-actions__action::after {
+        content: "{% if customer %}Mi cuenta{% else %}Iniciar sesión{% endif %}";
+        font-size: 11px;
+        line-height: 1;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+    </style>
   {% endif %}
 
+  <a href="#link-a-tu-app-de-favoritos" class="header-actions__action button-unstyled" aria-label="Favoritos">
+    <span class="svg-wrapper" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+      </svg>
+    </span>
+    <span class="custom-action-title">Favoritos</span>
+  </a>
   {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
     <script
       src="{{ 'cart-drawer.js' | asset_url }}"
