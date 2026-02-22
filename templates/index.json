@@ -555,7 +555,9 @@
         "group_eV4Uy9",
         "video_iMGYYy"
       ],
-      "custom_css": [],
+      "custom_css": [
+        "div {align-items: end;}"
+      ],
       "name": "t:names.video_section",
       "settings": {
         "content_direction": "row",
