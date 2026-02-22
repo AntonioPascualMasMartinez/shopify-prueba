@@ -176,7 +176,7 @@
               "settings": {
                 "menu": "men-footer-contacto",
                 "heading": "",
-                "menu_spacing": 12,
+                "menu_spacing": 6,
                 "show_as_accordion": false,
                 "accordion_icon": "caret",
                 "accordion_dividers": false,
@@ -267,7 +267,7 @@
               "settings": {
                 "menu": "men-footer-informaci-n",
                 "heading": "",
-                "menu_spacing": 12,
+                "menu_spacing": 6,
                 "show_as_accordion": false,
                 "accordion_icon": "caret",
                 "accordion_dividers": false,
