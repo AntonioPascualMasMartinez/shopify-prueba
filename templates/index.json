@@ -449,7 +449,7 @@
             "horizontal_alignment": "space-between",
             "vertical_alignment": "flex-end",
             "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
+            "horizontal_alignment_flex_direction_column": "flex-end",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 12,
             "width": "fit-content",
@@ -485,7 +485,7 @@
               "name": "t:names.text",
               "settings": {
                 "text": "<h1><strong>Despierta al constructor que llevas dentro</strong></h1>",
-                "width": "fit-content",
+                "width": "100%",
                 "max_width": "none",
                 "alignment": "left",
                 "type_preset": "rte",
