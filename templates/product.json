@@ -466,12 +466,39 @@
                     "text_hJJFzM",
                     "text_n6mQWJ"
                   ]
+                },
+                "text_wCC7U3": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p><a href=\"https://cdn.shopify.com/s/files/1/1017/7177/2234/files/Recommended_Tools_-_Indian_Girl_Canoe.pdf?v=1771755682\" title=\"Recommended Tools\">Recommended Tools</a></p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "text_b6xyxJ",
                 "text_8UQwUT",
-                "group_KeVXYb"
+                "group_KeVXYb",
+                "text_wCC7U3"
               ]
             }
           },
