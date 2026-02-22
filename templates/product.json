@@ -596,7 +596,7 @@
         }
       },
       "custom_css": [
-        ".details__header {text-transform: uppercase; font-size: 14px;}"
+        ".details__header {text-transform: uppercase; font-size: 14px; border-bottom: 1px solid;}"
       ],
       "settings": {
         "content_width": "content-center-aligned",
