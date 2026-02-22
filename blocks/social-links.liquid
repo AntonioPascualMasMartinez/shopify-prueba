@@ -100,24 +100,17 @@
 {% stylesheet %}
   .social-icons__wrapper {
     display: flex;
-    gap: 15px; /* Espacio entre los textos */
-    flex-wrap: wrap;
-    justify-content: center; /* Esto centra el contenido en móvil */
+    flex-direction: column; /* ¡ESTA ES LA CLAVE! Los apila uno debajo del otro */
+    align-items: center; /* Mantiene los textos centrados horizontalmente en la pantalla */
+    gap: 5px; /* Espacio vertical entre cada red social (he puesto 5px para que queden juntitos) */
     width: 100%;
     margin-top: 20px;
-
-    /* Modificado: Mantenemos el justify-content: center también en escritorio */
-    @media screen and (min-width: 750px) {
-      flex-wrap: nowrap;
-      justify-content: center;
-    }
   }
 
   .social-icons__icon-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Quitamos el height fijo para que se adapte al texto */
   }
 
   /* Disabled state for editor */
