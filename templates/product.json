@@ -597,7 +597,7 @@
       },
       "custom_css": [
         ".details__header {text-transform: uppercase; font-size: 14px; border-bottom: 1px solid; border-top: none;}",
-        ".accordion--dividers accordion-custom:first-child .details {border-block-start: calc(var(--style-border-width) * var(--show-fallback-borders)) solid transparent;}"
+        ".accordion--dividers accordion-custom:first-child .details {border-block-start: 0px;}"
       ],
       "settings": {
         "content_width": "content-center-aligned",
