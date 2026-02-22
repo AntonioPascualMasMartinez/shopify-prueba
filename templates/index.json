@@ -484,7 +484,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<h1><strong>Despierta al constructor<br/>que llevas dentro</strong></h1>",
+                "text": "<h1><strong>Despierta al constructor que llevas dentro</strong></h1>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
