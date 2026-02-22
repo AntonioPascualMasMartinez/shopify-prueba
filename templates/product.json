@@ -595,6 +595,9 @@
           ]
         }
       },
+      "custom_css": [
+        ".details__header {text-transform: uppercase;}"
+      ],
       "settings": {
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
