@@ -556,7 +556,7 @@
         "video_iMGYYy"
       ],
       "custom_css": [
-        "div {align-items: end;}"
+        "div > a {align-items: end;}"
       ],
       "name": "t:names.video_section",
       "settings": {
