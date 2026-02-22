@@ -279,7 +279,7 @@
             },
             "group_NyiMWt": {
               "type": "group",
-              "name": "t:names.group",
+              "name": "Detalles",
               "settings": {
                 "content_direction": "column",
                 "vertical_on_mobile": true,
@@ -317,188 +317,272 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "text_b6xyxJ": {
-                  "type": "text",
-                  "name": "Short description",
+                "accordion_rNBBaQ": {
+                  "type": "accordion",
+                  "name": "t:names.accordion",
                   "settings": {
-                    "text": "<p>{{ closest.product.metafields.custom.breve_descripcion | metafield_tag }}</p>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "text_8UQwUT": {
-                  "type": "text",
-                  "name": "Product description",
-                  "settings": {
-                    "text": "<p>{{ closest.product.description }}</p>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-primary--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "group_KeVXYb": {
-                  "type": "group",
-                  "name": "t:names.group",
-                  "settings": {
-                    "content_direction": "column",
-                    "vertical_on_mobile": true,
-                    "horizontal_alignment": "flex-start",
-                    "vertical_alignment": "center",
-                    "align_baseline": false,
-                    "horizontal_alignment_flex_direction_column": "flex-start",
-                    "vertical_alignment_flex_direction_column": "center",
-                    "gap": 12,
-                    "width": "fill",
-                    "custom_width": 100,
-                    "width_mobile": "fill",
-                    "custom_width_mobile": 100,
-                    "height": "fit",
-                    "custom_height": 100,
+                    "icon": "caret",
+                    "dividers": true,
+                    "type_preset": "h6",
                     "inherit_color_scheme": true,
                     "color_scheme": "",
-                    "background_media": "none",
-                    "video_position": "cover",
-                    "background_image_position": "cover",
                     "border": "none",
                     "border_width": 1,
                     "border_opacity": 100,
                     "border_radius": 0,
-                    "toggle_overlay": false,
-                    "overlay_color": "#00000026",
-                    "overlay_style": "solid",
-                    "gradient_direction": "to top",
-                    "link": "",
-                    "open_in_new_tab": false,
-                    "placeholder": "",
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
                   },
                   "blocks": {
-                    "text_hJJFzM": {
-                      "type": "text",
-                      "name": "Time",
+                    "accordion_row_8jDjBX": {
+                      "type": "_accordion-row",
+                      "name": "t:names.accordion_row",
                       "settings": {
-                        "text": "<p>{{ closest.product.metafields.custom.tiempo_promedio_de_construccion.value }}</p>",
-                        "width": "fit-content",
-                        "max_width": "normal",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
+                        "heading": "Breve descripción",
+                        "open_by_default": false,
+                        "icon": "none",
+                        "width": 20
                       },
-                      "blocks": {}
+                      "blocks": {
+                        "text_6TfMa8": {
+                          "type": "text",
+                          "name": "Short description",
+                          "settings": {
+                            "text": "<p>{{ closest.product.metafields.custom.breve_descripcion | metafield_tag }}</p>",
+                            "width": "fit-content",
+                            "max_width": "normal",
+                            "alignment": "left",
+                            "type_preset": "rte",
+                            "font": "var(--font-body--family)",
+                            "font_size": "1rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-foreground)",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "text_6TfMa8"
+                      ]
                     },
-                    "text_n6mQWJ": {
-                      "type": "text",
-                      "name": "t:names.text",
+                    "accordion_row_TPj4Rk": {
+                      "type": "_accordion-row",
+                      "name": "t:names.accordion_row",
                       "settings": {
-                        "text": "<p>{{ closest.product.metafields.custom.instrucciones_de_montaje | metafield_tag }}</p>",
-                        "width": "fit-content",
-                        "max_width": "normal",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
+                        "heading": "Descripción",
+                        "open_by_default": false,
+                        "icon": "none",
+                        "width": 20
                       },
-                      "blocks": {}
+                      "blocks": {
+                        "text_byfXdm": {
+                          "type": "text",
+                          "name": "Product description",
+                          "settings": {
+                            "text": "<p>{{ closest.product.description }}</p>",
+                            "width": "100%",
+                            "max_width": "normal",
+                            "alignment": "left",
+                            "type_preset": "rte",
+                            "font": "var(--font-primary--family)",
+                            "font_size": "",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "text_byfXdm"
+                      ]
+                    },
+                    "accordion_row_z3Tyrg": {
+                      "type": "_accordion-row",
+                      "name": "t:names.accordion_row",
+                      "settings": {
+                        "heading": "Detalles del producto",
+                        "open_by_default": false,
+                        "icon": "none",
+                        "width": 20
+                      },
+                      "blocks": {
+                        "group_WjhgcX": {
+                          "type": "group",
+                          "name": "t:names.group",
+                          "settings": {
+                            "content_direction": "column",
+                            "vertical_on_mobile": true,
+                            "horizontal_alignment": "flex-start",
+                            "vertical_alignment": "center",
+                            "align_baseline": false,
+                            "horizontal_alignment_flex_direction_column": "flex-start",
+                            "vertical_alignment_flex_direction_column": "center",
+                            "gap": 12,
+                            "width": "fill",
+                            "custom_width": 100,
+                            "width_mobile": "fill",
+                            "custom_width_mobile": 100,
+                            "height": "fit",
+                            "custom_height": 100,
+                            "inherit_color_scheme": true,
+                            "color_scheme": "",
+                            "background_media": "none",
+                            "video_position": "cover",
+                            "background_image_position": "cover",
+                            "border": "none",
+                            "border_width": 1,
+                            "border_opacity": 100,
+                            "border_radius": 0,
+                            "toggle_overlay": false,
+                            "overlay_color": "#00000026",
+                            "overlay_style": "solid",
+                            "gradient_direction": "to top",
+                            "link": "",
+                            "open_in_new_tab": false,
+                            "placeholder": "",
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {
+                            "text_i9bcaq": {
+                              "type": "text",
+                              "name": "Time",
+                              "settings": {
+                                "text": "<p>{{ closest.product.metafields.custom.tiempo_promedio_de_construccion.value }}</p>",
+                                "width": "fit-content",
+                                "max_width": "normal",
+                                "alignment": "left",
+                                "type_preset": "rte",
+                                "font": "var(--font-body--family)",
+                                "font_size": "1rem",
+                                "line_height": "normal",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            },
+                            "text_d6fjJJ": {
+                              "type": "text",
+                              "name": "t:names.text",
+                              "settings": {
+                                "text": "<p>{{ closest.product.metafields.custom.instrucciones_de_montaje | metafield_tag }}</p>",
+                                "width": "fit-content",
+                                "max_width": "normal",
+                                "alignment": "left",
+                                "type_preset": "rte",
+                                "font": "var(--font-body--family)",
+                                "font_size": "1rem",
+                                "line_height": "normal",
+                                "letter_spacing": "normal",
+                                "case": "none",
+                                "wrap": "pretty",
+                                "color": "var(--color-foreground)",
+                                "background": false,
+                                "background_color": "#00000026",
+                                "corner_radius": 0,
+                                "padding-block-start": 0,
+                                "padding-block-end": 0,
+                                "padding-inline-start": 0,
+                                "padding-inline-end": 0
+                              },
+                              "blocks": {}
+                            }
+                          },
+                          "block_order": [
+                            "text_i9bcaq",
+                            "text_d6fjJJ"
+                          ]
+                        }
+                      },
+                      "block_order": [
+                        "group_WjhgcX"
+                      ]
+                    },
+                    "accordion_row_EnFpEn": {
+                      "type": "_accordion-row",
+                      "name": "t:names.accordion_row",
+                      "settings": {
+                        "heading": "Instrucciones",
+                        "open_by_default": false,
+                        "icon": "none",
+                        "width": 20
+                      },
+                      "blocks": {
+                        "text_Hjanc9": {
+                          "type": "text",
+                          "name": "t:names.text",
+                          "settings": {
+                            "text": "<p><a href=\"https://cdn.shopify.com/s/files/1/1017/7177/2234/files/Recommended_Tools_-_Indian_Girl_Canoe.pdf?v=1771755682\" title=\"Recommended Tools\">Recommended Tools</a></p>",
+                            "width": "fit-content",
+                            "max_width": "normal",
+                            "alignment": "left",
+                            "type_preset": "rte",
+                            "font": "var(--font-body--family)",
+                            "font_size": "1rem",
+                            "line_height": "normal",
+                            "letter_spacing": "normal",
+                            "case": "none",
+                            "wrap": "pretty",
+                            "color": "var(--color-foreground)",
+                            "background": false,
+                            "background_color": "#00000026",
+                            "corner_radius": 0,
+                            "padding-block-start": 0,
+                            "padding-block-end": 0,
+                            "padding-inline-start": 0,
+                            "padding-inline-end": 0
+                          },
+                          "blocks": {}
+                        }
+                      },
+                      "block_order": [
+                        "text_Hjanc9"
+                      ]
                     }
                   },
                   "block_order": [
-                    "text_hJJFzM",
-                    "text_n6mQWJ"
+                    "accordion_row_8jDjBX",
+                    "accordion_row_TPj4Rk",
+                    "accordion_row_z3Tyrg",
+                    "accordion_row_EnFpEn"
                   ]
-                },
-                "text_wCC7U3": {
-                  "type": "text",
-                  "name": "t:names.text",
-                  "settings": {
-                    "text": "<p><a href=\"https://cdn.shopify.com/s/files/1/1017/7177/2234/files/Recommended_Tools_-_Indian_Girl_Canoe.pdf?v=1771755682\" title=\"Recommended Tools\">Recommended Tools</a></p>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
                 }
               },
               "block_order": [
-                "text_b6xyxJ",
-                "text_8UQwUT",
-                "group_KeVXYb",
-                "text_wCC7U3"
+                "accordion_rNBBaQ"
               ]
             }
           },
