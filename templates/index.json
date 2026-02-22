@@ -514,7 +514,7 @@
                 "link": "shopify://pages/contact",
                 "open_in_new_tab": true,
                 "style_class": "button-secondary",
-                "width": "custom",
+                "width": "fit-content",
                 "custom_width": 100,
                 "width_mobile": "fit-content",
                 "custom_width_mobile": 100
