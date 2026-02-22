@@ -9,6 +9,17 @@
  */
 {
   "sections": {
+    "custom_liquid_wi3pGR": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<nav class=\"custom-breadcrumb\" role=\"navigation\" aria-label=\"breadcrumbs\" style=\"font-size: 12px; margin-bottom: 15px;\">\n  <a href=\"/\" style=\"color: #1e3a8a; text-decoration: none;\">Inicio</a>\n  <span aria-hidden=\"true\" style=\"margin: 0 8px; color: #a3a3a3;\">/</span>\n  \n  {% if collection %}\n    <a href=\"{{ collection.url }}\" style=\"color: #1e3a8a; text-decoration: none;\">{{ collection.title }}</a>\n    <span aria-hidden=\"true\" style=\"margin: 0 8px; color: #a3a3a3;\">/</span>\n  {% else %}\n    {% assign first_collection = product.collections.first %}\n    {% if first_collection %}\n      <a href=\"{{ first_collection.url }}\" style=\"color: #1e3a8a; text-decoration: none;\">{{ first_collection.title }}</a>\n      <span aria-hidden=\"true\" style=\"margin: 0 8px; color: #a3a3a3;\">/</span>\n    {% endif %}\n  {% endif %}\n  \n  <span style=\"color: #1e3a8a;\">{{ product.title }}</span>\n</nav>",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "main": {
       "type": "product-information",
       "blocks": {
@@ -665,6 +676,7 @@
     }
   },
   "order": [
+    "custom_liquid_wi3pGR",
     "main",
     "product_recommendations_qggXJq"
   ]
