@@ -426,101 +426,15 @@
         "padding-block-end": 48
       }
     },
-    "collection_list_Yty39w": {
-      "type": "collection-list",
-      "blocks": {
-        "static-collection-card": {
-          "type": "_collection-card",
-          "name": "t:names.collection_card",
-          "static": true,
-          "settings": {
-            "placement": "on_image",
-            "horizontal_alignment": "center",
-            "vertical_alignment": "flex-start",
-            "collection_card_gap": 8,
-            "inherit_color_scheme": false,
-            "color_scheme": "scheme-96ca0090-58bd-444e-af3a-6700113d8ea0",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 25
-          },
-          "blocks": {
-            "collection_title_3qxVpQ": {
-              "type": "collection-title",
-              "name": "t:names.collection_title",
-              "settings": {
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "custom",
-                "font": "var(--font-heading--family)",
-                "font_size": "2rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "uppercase",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "collection-card-image": {
-              "type": "_collection-card-image",
-              "name": "t:names.collection_card_image",
-              "static": true,
-              "settings": {
-                "image_ratio": "adapt",
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "collection_title_3qxVpQ"
-          ]
-        }
-      },
-      "custom_css": [
-        "p {font-weight: bold;}"
-      ],
-      "name": "t:names.collections_carousel",
+    "custom_liquid_nmkLGF": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
       "settings": {
-        "collection_list": [
-          "barcos",
-          "aviones",
-          "herramientas",
-          "acabados"
-        ],
-        "layout_type": "carousel",
-        "carousel_on_mobile": false,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "bento_gap": 8,
-        "rows_gap": 8,
-        "max_collections": 4,
-        "icons_style": "none",
-        "icons_shape": "circle",
-        "section_width": "page-width",
-        "gap": 12,
+        "custom_liquid": "<style>\n  .custom-category-grid {\n    display: grid;\n    grid-template-columns: repeat(4, 1fr);\n    gap: 20px;\n    max-width: 1200px;\n    margin: 40px auto;\n    padding: 0 20px;\n  }\n  \n  .custom-cat-card {\n    background-color: #f8f9fa; /* Fondo azul/gris muy clarito */\n    border-radius: 20px;\n    padding: 30px 20px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    text-align: center;\n    text-decoration: none;\n    transition: transform 0.3s ease, box-shadow 0.3s ease;\n  }\n  \n  .custom-cat-card:hover {\n    transform: translateY(-5px); /* Pequeño salto al pasar el ratón */\n    box-shadow: 0 10px 20px rgba(0,0,0,0.05);\n  }\n  \n  .custom-cat-title {\n    color: #2b3a82; /* Azul oscuro corporativo */\n    font-size: 20px;\n    font-weight: 800;\n    text-transform: uppercase;\n    line-height: 1.2;\n    margin: 0 0 20px 0;\n    min-height: 48px; /* Iguala las alturas si un título tiene 2 líneas */\n    display: flex;\n    align-items: center;\n  }\n  \n  .custom-cat-img {\n    width: 100%;\n    height: 180px;\n    object-fit: contain; /* Evita que la imagen se deforme */\n    margin-bottom: 25px;\n  }\n  \n  .custom-cat-btn {\n    background-color: #ffffff;\n    color: #2b3a82;\n    border-radius: 50px;\n    padding: 12px 0;\n    width: 90%;\n    max-width: 200px;\n    font-weight: 600;\n    font-size: 14px;\n    text-transform: uppercase;\n    transition: all 0.3s;\n  }\n  \n  .custom-cat-card:hover .custom-cat-btn {\n    background-color: #2b3a82;\n    color: #ffffff; /* El botón se invierte al pasar el ratón */\n  }\n\n  /* Adaptación para tablets (2 columnas) y móviles (1 columna) */\n  @media (max-width: 900px) {\n    .custom-category-grid { grid-template-columns: repeat(2, 1fr); }\n  }\n  @media (max-width: 500px) {\n    .custom-category-grid { grid-template-columns: 1fr; }\n  }\n</style>\n\n<div class=\"custom-category-grid\">\n  <a href=\"/collections/maquetas-de-barcos\" class=\"custom-cat-card\">\n    <h3 class=\"custom-cat-title\">Maquetas de<br>barcos</h3>\n    <img src=\"URL_IMAGEN_BARCO\" class=\"custom-cat-img\" alt=\"Maquetas de barcos\">\n    <span class=\"custom-cat-btn\">Descubrir</span>\n  </a>\n\n  <a href=\"/collections/maquetas-de-aviones\" class=\"custom-cat-card\">\n    <h3 class=\"custom-cat-title\">Maquetas de<br>aviones</h3>\n    <img src=\"URL_IMAGEN_AVION\" class=\"custom-cat-img\" alt=\"Maquetas de aviones\">\n    <span class=\"custom-cat-btn\">Descubrir</span>\n  </a>\n\n  <a href=\"/collections/herramientas\" class=\"custom-cat-card\">\n    <h3 class=\"custom-cat-title\">Herramientas</h3>\n    <img src=\"URL_IMAGEN_HERRAMIENTAS\" class=\"custom-cat-img\" alt=\"Herramientas\">\n    <span class=\"custom-cat-btn\">Descubrir</span>\n  </a>\n\n  <a href=\"/collections/acabados\" class=\"custom-cat-card\">\n    <h3 class=\"custom-cat-title\">Acabados</h3>\n    <img src=\"URL_IMAGEN_ACABADOS\" class=\"custom-cat-img\" alt=\"Acabados\">\n    <span class=\"custom-cat-btn\">Descubrir</span>\n  </a>\n</div>",
         "color_scheme": "",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "section_wpnhFr": {
@@ -1454,7 +1368,7 @@
     "hero_jVaWmY",
     "product_list_fa6P9H",
     "product_list_MEJXzh",
-    "collection_list_Yty39w",
+    "custom_liquid_nmkLGF",
     "section_wpnhFr",
     "section_zebDDT",
     "section_GAYf8q",
