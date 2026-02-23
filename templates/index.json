@@ -779,7 +779,7 @@
           "settings": {
             "image": "shopify://shop_images/c_copia_estrecha.jpg",
             "link": "",
-            "image_ratio": "adapt",
+            "image_ratio": "landscape",
             "width": "custom",
             "custom_width": 50,
             "width_mobile": "fill",
