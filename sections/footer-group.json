@@ -365,23 +365,18 @@
               },
               "blocks": {}
             },
-            "payment_icons_mFjqed": {
-              "type": "payment-icons",
-              "name": "t:names.payment_icons",
+            "custom_liquid_zPDH6h": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
               "settings": {
-                "horizontal_alignment": "flex-start",
-                "gap": 10,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "custom_liquid": "<style>\n  .custom-payment-list {\n    list-style: none;\n    padding: 0;\n    margin: 0;\n    display: flex;\n    flex-direction: column;\n    gap: 12px;\n  }\n  \n  .custom-payment-item {\n    display: flex;\n    align-items: center;\n    gap: 15px;\n    color: #2b3a82; /* Azul corporativo oscuro para el texto */\n    font-size: 14px;\n  }\n  \n  .custom-payment-icon {\n    width: 35px; /* Fija un ancho para alinear los textos verticalmente */\n    display: flex;\n    justify-content: center;\n    color: #2b3a82; /* Aplica el azul corporativo a los iconos de FontAwesome */\n  }\n  \n  /* Reducimos un pelín el fa-2x para que encaje perfecto con tu tamaño de texto */\n  .custom-payment-icon .fa-2x {\n    font-size: 1.8em; \n  }\n</style>\n\n<ul class=\"custom-payment-list\">\n  <li class=\"custom-payment-item\">\n    <div class=\"custom-payment-icon\"><i class=\"fa fa-cc-visa fa-2x fa-fw\"></i></div>\n    <span>Visa</span>\n  </li>\n  \n  <li class=\"custom-payment-item\">\n    <div class=\"custom-payment-icon\"><i class=\"fa fa-cc-mastercard fa-2x fa-fw\"></i></div>\n    <span>MasterCard</span>\n  </li>\n  \n  <li class=\"custom-payment-item\">\n    <div class=\"custom-payment-icon\"><i class=\"fa fa-mobile-phone fa-2x fa-fw\"></i></div>\n    <span>Bizum</span>\n  </li>\n  \n  <li class=\"custom-payment-item\">\n    <div class=\"custom-payment-icon\"><i class=\"fa fa-paypal fa-2x fa-fw\"></i></div>\n    <span>Paypal</span>\n  </li>\n  \n  <li class=\"custom-payment-item\">\n    <div class=\"custom-payment-icon\"><i class=\"fa fa-cc-discover fa-2x fa-fw\"></i></div>\n    <span>Discover</span>\n  </li>\n  \n  <li class=\"custom-payment-item\">\n    <div class=\"custom-payment-icon\"><i class=\"fa fa-credit-card fa-2x fa-fw\"></i></div>\n    <span>Klarna</span>\n  </li>\n  \n  <li class=\"custom-payment-item\">\n    <div class=\"custom-payment-icon\"><i class=\"fa fa-money fa-2x fa-fw\"></i></div>\n    <span>Paygold</span>\n  </li>\n  \n  <li class=\"custom-payment-item\">\n    <div class=\"custom-payment-icon\"><i class=\"fa fa-heart-o fa-2x fa-fw\"></i></div>\n    <span>Scalapay</span>\n  </li>\n</ul>"
               },
               "blocks": {}
             }
           },
           "block_order": [
             "text_874Enw",
-            "payment_icons_mFjqed"
+            "custom_liquid_zPDH6h"
           ]
         }
       },
