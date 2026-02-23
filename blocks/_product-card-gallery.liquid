@@ -3,14 +3,12 @@
 {% capture children %}
   {% unless product == blank %}
     
-    <div class="custom-badge-top-left">
-      <span class="custom-badge-dot"></span>
-      {% comment %} 
-        Puedes cambiar 'Iniciación' por un metacampo dinámico si cada barco tiene un nivel distinto. 
-        Ejemplo: {{ product.metafields.custom.nivel_dificultad }} 
-      {% endcomment %}
-      <span class="custom-badge-text">Iniciación</span>
-    </div>
+{% if product.type != blank %}
+      <div class="custom-badge-top-left">
+        <span class="custom-badge-dot"></span>
+        <span class="custom-badge-text">{{ product.type }}</span>
+      </div>
+    {% endif %}
 
     <button class="custom-wishlist-top-right" aria-label="Añadir a favoritos">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -208,6 +206,14 @@
     padding-block: var(--badge-rectangle-padding-block);
     padding-inline: var(--badge-rectangle-padding-inline);
   }
+
+  /* Transición suave para el cambio de imagen al hacer hover */
+  .card-gallery img,
+  .card-gallery .media > *,
+  .product-item img {
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out !important;
+  }
+  
 {% endstylesheet %}
 
 {% schema %}
