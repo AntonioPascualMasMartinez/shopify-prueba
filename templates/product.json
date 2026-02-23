@@ -149,7 +149,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Referencia </p>",
+                    "text": "<p>Referencia  {{ closest.product.metafields.custom.referencia.value }}</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
