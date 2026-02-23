@@ -841,7 +841,7 @@
               "name": "t:names.email_signup",
               "settings": {
                 "width": "custom",
-                "custom_width": 49,
+                "custom_width": 40,
                 "inherit_color_scheme": true,
                 "color_scheme": "scheme-1",
                 "heading": "Suscríbete a nuestra newsletter y disfruta de un 5% de descuento en tu primera compra",
