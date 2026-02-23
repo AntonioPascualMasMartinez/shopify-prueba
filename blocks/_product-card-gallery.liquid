@@ -1,21 +1,41 @@
 {% assign product = closest.product %}
 
+{% assign badge_color = 'transparent' %}
+{% assign badge_text = '' %}
+
+{% if product.type != blank %}
+  {% assign type_lower = product.type | downcase %}
+  
+  {% if type_lower contains 'iniciaci' %}
+    {% assign badge_color = '#61d15c' %} {% assign badge_text = 'Iniciación' %}
+  {% elsif type_lower contains 'medio' %}
+    {% assign badge_color = '#eab308' %} {% assign badge_text = 'Iniciados' %}
+  {% elsif type_lower contains 'experto' or type_lower contains 'avanzado' %}
+    {% assign badge_color = '#f97316' %} {% assign badge_text = 'Experimentados' %}
+  {% else %}
+    {% assign badge_color = '#283583' %} {% assign badge_text = product.type %}
+  {% endif %}
+{% endif %}
+
+<div class="custom-card-header">
+  {% if badge_text != '' %}
+    <div class="custom-badge-top-left">
+      <span class="custom-badge-dot" style="background-color: {{ badge_color }};"></span>
+      <span class="custom-badge-text">{{ badge_text }}</span>
+    </div>
+  {% else %}
+    <div></div> {% endif %}
+
+  <button class="custom-wishlist-top-right" aria-label="Añadir a favoritos">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+    </svg>
+  </button>
+</div>
+
 {% capture children %}
   {% unless product == blank %}
     
-{% if product.type != blank %}
-      <div class="custom-badge-top-left">
-        <span class="custom-badge-dot"></span>
-        <span class="custom-badge-text">{{ product.type }}</span>
-      </div>
-    {% endif %}
-
-    <button class="custom-wishlist-top-right" aria-label="Añadir a favoritos">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-      </svg>
-    </button>
-
     <div class="custom-hover-buy-container">
       {%- form 'product', product, class: 'custom-buy-form' -%}
         <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
@@ -67,20 +87,24 @@
 </div>
 
 {% stylesheet %}
-  /* --- NUEVOS ESTILOS PARA LA TARJETA --- */
-  
+  /* --- CABECERA DE LA TARJETA (Fondo blanco) --- */
+  .custom-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 12px;
+    width: 100%;
+  }
+
+  /* Etiqueta ahora integrada en el flujo (sin position: absolute) */
   .custom-badge-top-left {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: #ffffff;
-    border: 1px solid #283583; /* Azul oscuro corporativo */
+    border: 1px solid #283583;
     border-radius: 20px;
     padding: 4px 12px 4px 6px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 6px;
-    z-index: 2;
     font-size: 13px;
     color: #283583;
     font-weight: 500;
@@ -89,27 +113,26 @@
   .custom-badge-dot {
     width: 12px;
     height: 12px;
-    background-color: #61d15c; /* Verde del diseño */
     border-radius: 50%;
     display: inline-block;
   }
 
+  /* Corazón ahora integrado en el flujo (sin position: absolute) */
   .custom-wishlist-top-right {
-    position: absolute;
-    top: 12px;
-    right: 12px;
     background: transparent;
     border: none;
-    color: #7b85a3; /* Tono azul/gris apagado para el corazón */
+    color: #7b85a3;
     cursor: pointer;
-    z-index: 2;
     padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: transform 0.2s ease, color 0.2s ease;
   }
 
   .custom-wishlist-top-right:hover {
     transform: scale(1.1);
-    color: #283583; /* Se vuelve azul corporativo al pasar el ratón */
+    color: #283583;
   }
 
   .custom-wishlist-top-right svg {
@@ -117,7 +140,7 @@
     height: 24px;
   }
 
-  /* Contenedor del botón comprar, oculto por defecto */
+  /* --- BOTÓN COMPRAR EN HOVER --- */
   .custom-hover-buy-container {
     position: absolute;
     bottom: 15px;
@@ -128,10 +151,9 @@
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none; /* Para que no intercepte clics si está oculto */
+    pointer-events: none;
   }
 
-  /* Aquí se activa el efecto hover. Funciona cuando se pasa el ratón por toda la tarjeta */
   product-card:hover .custom-hover-buy-container,
   .card:hover .custom-hover-buy-container,
   .product-item:hover .custom-hover-buy-container,
@@ -148,11 +170,10 @@
 
   .custom-hover-buy-btn {
     width: 100%;
-    background-color: #283583; /* Azul corporativo */
+    background-color: #283583;
     color: white;
     border: none;
-    border-radius: 25px; /* Bordes redondos como en la foto */
-    font-family: var(--badge-font-family);
+    border-radius: 25px;
     padding: 12px 0;
     font-size: 15px;
     font-weight: 500;
@@ -162,7 +183,14 @@
   }
 
   .custom-hover-buy-btn:hover {
-    background-color: #1e295d; /* Oscurece al hacer hover en el propio botón */
+    background-color: #1e295d;
+  }
+
+  /* --- TRANSICIÓN SUAVE DE IMAGEN (SMOOTH HOVER) --- */
+  .card-gallery img,
+  .card-gallery .media > *,
+  .product-item img {
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out !important;
   }
 
   /* --- ESTILOS ORIGINALES NATIVOS --- */
@@ -206,14 +234,6 @@
     padding-block: var(--badge-rectangle-padding-block);
     padding-inline: var(--badge-rectangle-padding-inline);
   }
-
-  /* Transición suave para el cambio de imagen al hacer hover */
-  .card-gallery img,
-  .card-gallery .media > *,
-  .product-item img {
-    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out !important;
-  }
-  
 {% endstylesheet %}
 
 {% schema %}
