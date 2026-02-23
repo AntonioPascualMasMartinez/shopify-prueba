@@ -1,9 +1,36 @@
-
-
 {% assign product = closest.product %}
 
 {% capture children %}
   {% unless product == blank %}
+    
+    <div class="custom-badge-top-left">
+      <span class="custom-badge-dot"></span>
+      {% comment %} 
+        Puedes cambiar 'Iniciación' por un metacampo dinámico si cada barco tiene un nivel distinto. 
+        Ejemplo: {{ product.metafields.custom.nivel_dificultad }} 
+      {% endcomment %}
+      <span class="custom-badge-text">Iniciación</span>
+    </div>
+
+    <button class="custom-wishlist-top-right" aria-label="Añadir a favoritos">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+      </svg>
+    </button>
+
+    <div class="custom-hover-buy-container">
+      {%- form 'product', product, class: 'custom-buy-form' -%}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <button type="submit" class="custom-hover-buy-btn" {% if product.available == false %}disabled{% endif %}>
+          {% if product.available %}
+            Comprar
+          {% else %}
+            Agotado
+          {% endif %}
+        </button>
+      {%- endform -%}
+    </div>
+
     <div
       class="product-badges product-badges--{{ settings.badge_position }}"
       style="
@@ -26,9 +53,7 @@
         </div>
       {%- endif -%}
     </div>
-    {%  if settings.quick_add or settings.mobile_quick_add %}
-      {% render 'quick-add', product: product, section_id: section.id %}
-    {% endif %}
+
   {% endunless %}
 {% endcapture %}
 
@@ -44,9 +69,106 @@
 </div>
 
 {% stylesheet %}
+  /* --- NUEVOS ESTILOS PARA LA TARJETA --- */
+  
+  .custom-badge-top-left {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #ffffff;
+    border: 1px solid #283583; /* Azul oscuro corporativo */
+    border-radius: 20px;
+    padding: 4px 12px 4px 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 2;
+    font-size: 13px;
+    color: #283583;
+    font-weight: 500;
+  }
+
+  .custom-badge-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #61d15c; /* Verde del diseño */
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .custom-wishlist-top-right {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: #7b85a3; /* Tono azul/gris apagado para el corazón */
+    cursor: pointer;
+    z-index: 2;
+    padding: 5px;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .custom-wishlist-top-right:hover {
+    transform: scale(1.1);
+    color: #283583; /* Se vuelve azul corporativo al pasar el ratón */
+  }
+
+  .custom-wishlist-top-right svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Contenedor del botón comprar, oculto por defecto */
+  .custom-hover-buy-container {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    padding: 0 15px;
+    z-index: 3;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none; /* Para que no intercepte clics si está oculto */
+  }
+
+  /* Aquí se activa el efecto hover. Funciona cuando se pasa el ratón por toda la tarjeta */
+  product-card:hover .custom-hover-buy-container,
+  .card:hover .custom-hover-buy-container,
+  .product-item:hover .custom-hover-buy-container,
+  .card-gallery:hover .custom-hover-buy-container {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .custom-buy-form {
+    margin: 0;
+    width: 100%;
+  }
+
+  .custom-hover-buy-btn {
+    width: 100%;
+    background-color: #283583; /* Azul corporativo */
+    color: white;
+    border: none;
+    border-radius: 25px; /* Bordes redondos como en la foto */
+    padding: 12px 0;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: background-color 0.2s ease;
+  }
+
+  .custom-hover-buy-btn:hover {
+    background-color: #1e295d; /* Oscurece al hacer hover en el propio botón */
+  }
+
+  /* --- ESTILOS ORIGINALES NATIVOS --- */
   .product-badges {
     --badge-inset: max(var(--padding-xs), calc((var(--border-radius) + var(--padding-xs)) * (1 - cos(45deg))));
-
     position: absolute;
     z-index: var(--layer-flat);
   }
@@ -68,7 +190,6 @@
 
   .product-badges__badge {
     --badge-font-size: var(--font-size--xs);
-
     display: flex;
     align-items: center;
     justify-content: center;
