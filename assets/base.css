@@ -4833,7 +4833,7 @@ product-recommendations:has([data-has-recommendations='false']) {
 .checkmark-burst {
   opacity: 0;
   overflow: visible;
-
+  display: none;
   .burst {
     rotate: 20deg;
   }
