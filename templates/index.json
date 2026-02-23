@@ -34,7 +34,7 @@
       "custom_css": [
         ".hero {min-height: 98.7dvh !important;}",
         ".button--AelZqZnQvMDF0WFRtc__button_H9gpTf {padding: 0.5em 8em 0.5em 8em; border-style: solid; border-radius: 100px 100px 100px 100px; border: solid 1px;}",
-        ".button--AelZqZnQvMDF0WFRtc__button_H9gpTf:hover{transform: scale(1.023);}"
+        ".button--AelZqZnQvMDF0WFRtc__button_H9gpTf:hover {transform: scale(1.23);}"
       ],
       "name": "t:names.hero",
       "settings": {
