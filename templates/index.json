@@ -857,8 +857,8 @@
                 "button_type_preset": "",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-start": 30,
+                "padding-inline-end": 30
               },
               "blocks": {}
             }
@@ -873,7 +873,8 @@
         "group_cxPmTj"
       ],
       "custom_css": [
-        ".custom-section-background {border-top: 1px solid black;}"
+        ".custom-section-background {border-top: 1px solid black;}",
+        ".h3 {font-weight: bold;}"
       ],
       "name": "t:names.email_signup",
       "settings": {
