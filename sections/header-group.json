@@ -88,9 +88,8 @@
         }
       },
       "custom_css": [
-        "/* Botón Novedades - Estado normal */.menu-list__list-item:nth-child(10) .menu-list__link-title {background-color: red !important; color: #ffffff !important; /* <--- Esto fuerza la fuente a blanco */ padding: 0.5em;}",
-        "/* Botón Novedades - Estado Hover (al pasar el ratón) */.menu-list__list-item:nth-child(10):hover .menu-list__link-title {color: #ffffff !important; /* Corregido a :hover y apuntando al título */}",
-        "/* El unset que ya tenías */.cbp-hrmenu-tab a span {color: unset !important;}"
+        ".menu-list__list-item:nth-child(10) .menu-list__link-title {background-color: red !important; color: #ffffff !important; padding: 0.5em;}",
+        ".menu-list__list-item:nth-child(10):hover .menu-list__link-title {color: #ffffff !important;}"
       ],
       "settings": {
         "logo_position": "left",
