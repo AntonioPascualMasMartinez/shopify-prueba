@@ -89,7 +89,8 @@
       },
       "custom_css": [
         ".menu-list__list-item:nth-child(10) .menu-list__link-title {background-color: red !important; color: #ffffff !important; padding: 0.5em;}",
-        ".menu-list__list-item:nth-child(10):hover .menu-list__link-title {color: #ffffff !important;}"
+        ".menu-list__list-item:nth-child(10):hover .menu-list__link-title {color: #ffffff !important;}",
+        ".header {box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3) !important;}"
       ],
       "settings": {
         "logo_position": "left",
