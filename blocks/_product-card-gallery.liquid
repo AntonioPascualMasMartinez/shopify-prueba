@@ -5,35 +5,48 @@
 
 {% if product.type != blank %}
   {% assign type_lower = product.type | downcase %}
-  
+
   {% if type_lower contains 'iniciaci' %}
-    {% assign badge_color = '#61d15c' %} {% assign badge_text = 'Iniciación' %}
+    {% assign badge_color = '#61d15c' %}
+    {% assign badge_text = 'Iniciación' %}
   {% elsif type_lower contains 'medio' %}
-    {% assign badge_color = '#eab308' %} {% assign badge_text = 'Iniciados' %}
+    {% assign badge_color = '#eab308' %}
+    {% assign badge_text = 'Iniciados' %}
   {% elsif type_lower contains 'experto' or type_lower contains 'avanzado' %}
-    {% assign badge_color = '#f97316' %} {% assign badge_text = 'Experimentados' %}
+    {% assign badge_color = '#f97316' %}
+    {% assign badge_text = 'Experimentados' %}
   {% else %}
-    {% assign badge_color = '#283583' %} {% assign badge_text = product.type %}
+    {% assign badge_color = '#283583' %}
+    {% assign badge_text = product.type %}
   {% endif %}
 {% endif %}
 
-<div class="custom-card-header">
-  {% if badge_text != '' %}
-    <div class="custom-badge-top-left">
-      <span class="custom-badge-dot" style="background-color: {{ badge_color }};"></span>
-      <span class="custom-badge-text">{{ badge_text }}</span>
-    </div>
-  {% else %}
-    <div></div> {% endif %}
+<div class="card-gallery_container" style="position: relative;">
+  <div class="custom-card-header">
+    {% if badge_text != '' %}
+      <div class="custom-badge-top-left">
+        <span class="custom-badge-dot" style="background-color: {{ badge_color }};"></span>
+        <span class="custom-badge-text">{{ badge_text }}</span>
+      </div>
+    {% else %}
+      <div></div>
+    {% endif %}
 
-  <button class="custom-wishlist-top-right" aria-label="Añadir a favoritos">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-    </svg>
-  </button>
-</div>
+    <button class="custom-wishlist-top-right" aria-label="Añadir a favoritos">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+      </svg>
+    </button>
+  </div>
 
-{% capture children %}
+  {% capture children %}
   {% unless product == blank %}
     
     <div class="custom-hover-buy-container">
@@ -75,7 +88,8 @@
   {% endunless %}
 {% endcapture %}
 
-{% render 'card-gallery', children: children %}
+  {% render 'card-gallery', children: children %}
+</div>
 
 {% # Title and price for the zoomed out grid view %}
 <div class="product-grid-view-zoom-out--details">
@@ -105,7 +119,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 13px;
+    font-size: 11px;
     color: #283583;
     font-weight: 500;
   }
@@ -136,8 +150,8 @@
   }
 
   .custom-wishlist-top-right svg {
-    width: 24px;
-    height: 24px;
+    width: 1.1rem;
+    height: 1.1rem;
   }
 
   /* --- BOTÓN COMPRAR EN HOVER --- */
@@ -179,7 +193,7 @@
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: background-color 0.2s ease;
   }
 
@@ -192,6 +206,12 @@
   .card-gallery .media > *,
   .product-item img {
     transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out !important;
+  }
+
+  .card-gallery_container {
+    border: 1px solid;
+    border-color: #f4f6ff !important;
+    border-radius: 10px;
   }
 
   /* --- ESTILOS ORIGINALES NATIVOS --- */
