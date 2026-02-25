@@ -845,7 +845,7 @@
                 "inherit_color_scheme": true,
                 "color_scheme": "scheme-1",
                 "heading": "Suscríbete a nuestra newsletter y disfruta de un 5% de descuento en tu primera compra",
-                "heading_preset": "h4",
+                "heading_preset": "h3",
                 "border_style": "all",
                 "border_width": 1,
                 "border_radius": 100,
