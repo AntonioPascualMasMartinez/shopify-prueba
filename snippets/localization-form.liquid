@@ -252,6 +252,20 @@
           <span class="localization-flag" data-iso="{{ localization.country.iso_code }}" aria-hidden="true"></span>
         {%- endif -%}
 
+        {%- assign current_flag = localization.language.iso_code | downcase -%}
+        {%- if current_flag == 'en' -%}
+          {%- assign current_flag = 'gb' -%}
+        {%- endif -%}
+        <span style="display: inline-flex; align-items: center; margin-right: 2px; margin-left: 8px;">
+          <img 
+            src="https://flagcdn.com/w20/{{ current_flag }}.png" 
+            srcset="https://flagcdn.com/w40/{{ current_flag }}.png 2x" 
+            width="20"
+            height="20"
+            alt="{{ localization.language.name }}"
+            style="border-radius: 2px;"
+          >
+        </span>
         <select
           id="{{ localization_style }}Select"
           class="localization-form__select"
