@@ -764,6 +764,8 @@
     }
   },
   "platform_customizations": {
-    "custom_css": []
+    "custom_css": [
+      "::-webkit-scrollbar-thumb {background: #273488 !important; }"
+    ]
   }
 }
