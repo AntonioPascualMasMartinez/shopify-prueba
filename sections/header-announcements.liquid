@@ -99,13 +99,24 @@
 
   @media screen and (max-width: 749px) {
     .announcement-bar__inner {
-      grid-template-columns: 1fr;
-      row-gap: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      row-gap: 12px;
+      padding-block: 10px !important;
     }
 
     .announcement-bar__left,
-    .announcement-bar__right {
+    .announcement-bar__right,
+    .announcement-bar__center {
       justify-content: center;
+      width: 100%;
+    }
+
+    .announcement-bar__slider {
+      justify-content: center;
+      width: 100%;
     }
   }
 
