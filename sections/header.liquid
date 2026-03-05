@@ -1,5 +1,3 @@
-
-
 {% liquid
   assign order = 'logo,menu,localization,search,drawer_search,actions'
 
@@ -980,6 +978,59 @@
 
   .header__column .localization-form__select {
     background-color: var(--header-bg-color);
+  }
+
+  @media screen and (max-width: 749px) {
+    .header__columns {
+      /* Creamos 2 filas y 3 columnas para la fila superior */
+      grid-template-columns: 1fr max-content max-content !important;
+      grid-template-rows: auto auto !important;
+      grid-template-areas:
+        'logo actions menu'
+        'search search search' !important;
+      row-gap: 12px !important;
+      padding-bottom: 12px !important;
+    }
+
+    /* Logo a la izquierda (donde antes estaba el menú) */
+    .header__columns .header-logo {
+      grid-area: logo !important;
+      justify-content: flex-start !important;
+      margin-left: 0 !important;
+    }
+
+    /* Contenedor de iconos (Carrito, Cuenta) */
+    .header__columns header-actions {
+      grid-area: actions !important;
+    }
+
+    /* Menú hamburguesa al lado del carrito (extremo derecho) */
+    .header__columns .header__drawer {
+      grid-area: menu !important;
+    }
+
+    /* Buscador ocupando toda la segunda fila */
+    .header__columns .search-action {
+      grid-area: search !important;
+      width: 100% !important;
+      margin: 0 !important;
+    }
+
+    /* Ocultar el icono de favoritos/wishlist en móvil */
+    .header-actions__action[href*='wishlist'],
+    .header-actions__action:has(svg[class*='heart']),
+    .header-actions__action:has(svg[class*='wishlist']) {
+      display: none !important;
+    }
+  }
+
+  /* 2. HEADER TRANSPARENTE AL DESPLEGAR EL MENÚ (ESCRITORIO) */
+  .header:has(.menu-list__link[aria-expanded='true']) .header__row,
+  .header:has(.mega-menu__list:hover) .header__row {
+    background-color: transparent !important;
+    border-bottom-color: transparent !important;
+    color: white !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease !important;
   }
 {% endstylesheet %}
 
