@@ -1102,6 +1102,53 @@
   .header[data-sticky-state='active']:has(.mega-menu__list:hover) .dropdown-localization__button {
     color: #003366 !important; /* Sustituye por tu azul exacto si es necesario */
   }
+  .header:not([transparent]):not(:has(.menu-list__link[aria-expanded='true'])):not(:has(.mega-menu__list:hover))
+    .menu-list__link-title,
+  .header:not([transparent]):not(:has(.menu-list__link[aria-expanded='true'])):not(:has(.mega-menu__list:hover))
+    .header-actions__action,
+  .header:not([transparent]):not(:has(.menu-list__link[aria-expanded='true'])):not(:has(.mega-menu__list:hover))
+    .dropdown-localization__button,
+  .header:not([transparent]):not(:has(.menu-list__link[aria-expanded='true'])):not(:has(.mega-menu__list:hover))
+    .search-action {
+    color: #283583 !important; /* Tu azul corporativo */
+  }
+
+  /* Asegurarnos de que el logo mantenga su color original en este estado (sin filtro blanco) */
+  .header:not([transparent]):not(:has(.menu-list__link[aria-expanded='true'])):not(:has(.mega-menu__list:hover))
+    .header-logo
+    img {
+    filter: none !important;
+  }
+  .header:not([transparent]):has(.menu-list__link[aria-expanded='true']) .header__row,
+  .header:not([transparent]):has(.mega-menu__list:hover) .header__row {
+    background-color: #ffffff !important;
+  }
+
+  /* 2. Mantener el logo original (evitar el filtro blanco) al abrir el menú */
+  .header:not([transparent]):has(.menu-list__link[aria-expanded='true']) .header-logo img,
+  .header:not([transparent]):has(.mega-menu__list:hover) .header-logo img {
+    filter: none !important;
+  }
+
+  /* 3. Mantener los textos e iconos en azul corporativo al abrir el menú */
+  .header:not([transparent]):has(.menu-list__link[aria-expanded='true'])
+    .menu-list__list
+    > .menu-list__list-item
+    > .menu-list__link
+    .menu-list__link-title,
+  .header:not([transparent]):has(.mega-menu__list:hover)
+    .menu-list__list
+    > .menu-list__list-item
+    > .menu-list__link
+    .menu-list__link-title,
+  .header:not([transparent]):has(.menu-list__link[aria-expanded='true']) .header-actions__action,
+  .header:not([transparent]):has(.mega-menu__list:hover) .header-actions__action,
+  .header:not([transparent]):has(.menu-list__link[aria-expanded='true']) .dropdown-localization__button,
+  .header:not([transparent]):has(.mega-menu__list:hover) .dropdown-localization__button,
+  .header:not([transparent]):has(.menu-list__link[aria-expanded='true']) .search-action,
+  .header:not([transparent]):has(.mega-menu__list:hover) .search-action {
+    color: #283583 !important;
+  }
 {% endstylesheet %}
 
 {% unless request.design_mode %}
