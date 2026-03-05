@@ -992,7 +992,7 @@
       padding-bottom: 12px !important;
     }
 
-    /* Logo a la izquierda (donde antes estaba el menú) */
+    /* Logo a la izquierda */
     .header__columns .header-logo {
       grid-area: logo !important;
       justify-content: flex-start !important;
@@ -1004,7 +1004,7 @@
       grid-area: actions !important;
     }
 
-    /* Menú hamburguesa al lado del carrito (extremo derecho) */
+    /* Menú hamburguesa al extremo derecho */
     .header__columns .header__drawer {
       grid-area: menu !important;
     }
@@ -1016,21 +1016,91 @@
       margin: 0 !important;
     }
 
-    /* Ocultar el icono de favoritos/wishlist en móvil */
-    .header-actions__action[href*='wishlist'],
-    .header-actions__action:has(svg[class*='heart']),
-    .header-actions__action:has(svg[class*='wishlist']) {
+    /* Ocultar Favoritos apuntando exactamente a su aria-label */
+    .header-actions__action[aria-label='Favoritos'],
+    .header-actions__action[aria-label*='Favorito'] {
       display: none !important;
     }
   }
 
-  /* 2. HEADER TRANSPARENTE AL DESPLEGAR EL MENÚ (ESCRITORIO) */
+  /* 2. HEADER TRANSPARENTE Y CONTENIDO BLANCO AL DESPLEGAR EL MENÚ */
+
+  /* Volver el fondo transparente y cambiar variables de texto a blanco */
   .header:has(.menu-list__link[aria-expanded='true']) .header__row,
   .header:has(.mega-menu__list:hover) .header__row {
     background-color: transparent !important;
     border-bottom-color: transparent !important;
-    color: white !important;
     transition: background-color 0.2s ease, border-color 0.2s ease !important;
+  }
+
+  /* Forzar que el logo (imagen) se vuelva blanco puro */
+  .header:has(.menu-list__link[aria-expanded='true']) .header-logo img,
+  .header:has(.mega-menu__list:hover) .header-logo img {
+    filter: brightness(0) invert(1) !important;
+    transition: filter 0.2s ease !important;
+  }
+
+  /* Volver blancos SOLAMENTE los iconos, idioma, buscador y enlaces de 1er nivel (protegiendo el submenú) */
+  .header:has(.menu-list__link[aria-expanded='true']) .header-actions__action,
+  .header:has(.mega-menu__list:hover) .header-actions__action,
+  .header:has(.menu-list__link[aria-expanded='true']) .dropdown-localization__button,
+  .header:has(.mega-menu__list:hover) .dropdown-localization__button,
+  .header:has(.menu-list__link[aria-expanded='true']) .search-action,
+  .header:has(.mega-menu__list:hover) .search-action,
+  .header:has(.menu-list__link[aria-expanded='true']) .menu-list__list > .menu-list__list-item > .menu-list__link,
+  .header:has(.mega-menu__list:hover) .menu-list__list > .menu-list__list-item > .menu-list__link {
+    color: #ffffff !important;
+    --color-foreground: #ffffff !important;
+    --color-foreground-rgb: 255, 255, 255 !important;
+  }
+
+  .menu-list__link-title {
+    color: #ffffff;
+  }
+
+  .header[data-sticky-state='active'] .menu-list__link-title {
+    color: var(--menu-top-level-font-color) !important;
+    background-color: #ffffff !important;
+  }
+
+  /* Fondo blanco al hacer scroll (sticky) */
+  .header[data-sticky-state='active'] .header__row {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #eeeeee !important; /* Opcional: una línea sutil abajo */
+  }
+
+  /* El logo recupera su color original (quitamos el blanco) */
+  .header[data-sticky-state='active'] .header-logo img {
+    filter: none !important;
+  }
+
+  /* Textos de menú, iconos y selector de idioma en color azul/oscuro */
+  .header[data-sticky-state='active'] .menu-list__link-title,
+  .header[data-sticky-state='active'] .header-actions__action,
+  .header[data-sticky-state='active'] .dropdown-localization__button {
+    color: #003366 !important; /* Pon aquí el azul exacto de Artesanía Latina, por ejemplo #002855 */
+  }
+
+  /* 1. Fondo blanco al hacer hover INCLUSO cuando está sticky */
+  .header[data-sticky-state='active']:has(.menu-list__link[aria-expanded='true']) .header__row,
+  .header[data-sticky-state='active']:has(.mega-menu__list:hover) .header__row {
+    background-color: #ffffff !important;
+  }
+
+  /* 2. Logo en color original al hacer hover INCLUSO cuando está sticky */
+  .header[data-sticky-state='active']:has(.menu-list__link[aria-expanded='true']) .header-logo img,
+  .header[data-sticky-state='active']:has(.mega-menu__list:hover) .header-logo img {
+    filter: none !important;
+  }
+
+  /* 3. Textos e iconos azules al hacer hover INCLUSO cuando está sticky */
+  .header[data-sticky-state='active']:has(.menu-list__link[aria-expanded='true']) .menu-list__link-title,
+  .header[data-sticky-state='active']:has(.mega-menu__list:hover) .menu-list__link-title,
+  .header[data-sticky-state='active']:has(.menu-list__link[aria-expanded='true']) .header-actions__action,
+  .header[data-sticky-state='active']:has(.mega-menu__list:hover) .header-actions__action,
+  .header[data-sticky-state='active']:has(.menu-list__link[aria-expanded='true']) .dropdown-localization__button,
+  .header[data-sticky-state='active']:has(.mega-menu__list:hover) .dropdown-localization__button {
+    color: #003366 !important; /* Sustituye por tu azul exacto si es necesario */
   }
 {% endstylesheet %}
 
